@@ -46,40 +46,49 @@ public class WomenCategoryPage extends Utility {
     WebElement popUpBlock;
 
     public String verifyWomenText() {
+         log.info("verify Women text" + verifyWomenWord.toString()+ "<br>");
         return getTextFromElement(verifyWomenWord);
     }
 
     public void setSelectProduct(String product) {
+        log.info(" click on the product ' "+ product + " '"+ "<br>");
         clickOnElement(By.xpath("//a[normalize-space()='" + product + "']"));
     }
 
     public void enterQty(String quantity) {
         qtyfield.clear();
+        log.info(" enter qty ' " + quantity + " '  into the" + qtyfield.toString() + "<br>");
         sendTextToElement(qtyfield, quantity);
     }
 
     public void setSelectSize(String size) {
+         log.info(" select size ' " + size + " '" + "<br>");
         selectByVisibleTextFromDropDown(selectSize, size);
     }
 
     public void setSelectColour(String colour) {
+        log.info(" select colour ' " + colour + " ' " + "<br>");
         clickOnElement(By.xpath("//a[@title='" + colour + "']"));
     }
 
     public void setAddToCartButton() {
+       log.info("click on add to cart button" + addToCartButton.toString()+ "<br>"); 
         clickOnElement(addToCartButton);
     }
 
     public boolean verifyThatPopUpIsDisplayed() {
         waitUntilVisibilityOfElementLocated(By.xpath("//div[@class='layer_cart_product col-xs-12 col-md-6']"), 20);
+        log.info("verify that pop up is displayed " + popUpBlock.toString() + "<br>");
         return popUpBlock.isDisplayed();
     }
 
     public String setConfirmationText() {
+          log.info("get confirmation text" + confirmationText.toString()+ "<br>");
         return confirmationText.getText();
     }
 
     public void setCloseWindow() {
+        log.info(" clicking to close the window " + closeWindow.toString() + "<br>");
         clickOnElement(closeWindow);
     }
 }
